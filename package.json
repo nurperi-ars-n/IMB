@@ -46,7 +46,7 @@
     "javascript",
     "webpack"
   ],
-  "author": "Baktyiar",
+  "author": "Nurperi",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
