@@ -13,6 +13,7 @@ export default function HomePage() {
 				justifyContent: 'center',
 			}}
 		>
+			<h1>IMT Calculator</h1>
 			<table>
 				<tr>
 					<th colspan='2'>Индекс массы тела</th>
@@ -63,9 +64,7 @@ export default function HomePage() {
 				</tr>
 			</table>
 			<Link to='/calculator'>
-				<Button style={{}} color='primary'>
-					Расчитать свой ИМТ →{' '}
-				</Button>
+				<Button color='primary'>Расчитать свой ИМТ →</Button>
 			</Link>
 		</div>
 	)
