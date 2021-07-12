@@ -10,7 +10,7 @@ const App = () => (
 		<BrowserRouter>
 			<Switch>
 				<Route path='/calculator' component={Calculator} />
-				<Route path='/results' component={Results} />{' '}
+				<Route path='/results' component={Results} />
 				<Route path='/' component={HomePage} />
 			</Switch>
 		</BrowserRouter>

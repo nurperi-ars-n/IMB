@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Results.less'
-import { Link } from 'react-router-dom'
 
+import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import { useSelector } from 'react-redux'
+
 export default function Results() {
+	const state = useSelector((state) => state)
+
+
 	return (
 		<div className='results'>
 			<h1>Results :</h1>
 			<div className='block-result'>
 				<p style={{ background: '#E0FFFF' }}>
-					ВЕС:45,Height:155,Age: 22, POL:Ж
+					Weight:{state.weight}, Height:{state.height}, Age:
+					{state.age}, POL:{state.pol === true ? 'women' : 'men'}
 				</p>
 				<section
 					style={{
 						backgroundColor: 'rgb(215, 231, 250)',
-						width: '400px',
+						width: '500px',
 					}}
 				>
 					<hr />
@@ -26,18 +32,7 @@ export default function Results() {
 						}}
 					>
 						<span>Индекс массы тела (ИМТ)</span>
-						<span>22</span>
-					</p>
-					<hr />
-					<p
-						style={{
-							marginRight: '20px',
-							display: 'flex',
-							justifyContent: 'space-between',
-						}}
-					>
-						<span>Вес должен быть в диапазоне</span>
-						<span>22</span>
+						<span>{state.imt}</span>
 					</p>
 					<hr />
 					<p
@@ -48,7 +43,7 @@ export default function Results() {
 						}}
 					>
 						<span>Ваш идеальный вес</span>
-						<span>22</span>
+						<span>{state.perfectVes}</span>
 					</p>
 					<hr />
 					<p
@@ -59,7 +54,7 @@ export default function Results() {
 						}}
 					>
 						<span>Жирность тела</span>
-						<span>22</span>
+						<span>{state.imt > 13 ? '13-20%' : ''}</span>
 					</p>
 					<hr />
 				</section>
@@ -73,6 +68,18 @@ export default function Results() {
 						color='secondary'
 					>
 						Таблица ИМТ →
+					</Button>
+				</Link>
+				<Link to='/calculator'>
+					<Button
+						style={{
+							width: '200px',
+							marginTop: '12px',
+						}}
+						variant='contained'
+						color='secondary'
+					>
+						Назад →
 					</Button>
 				</Link>
 			</div>
