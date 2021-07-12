@@ -7,6 +7,7 @@ export default function HomePage() {
 	return (
 		<div
 			style={{
+				height: '600px',
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'center',
@@ -15,56 +16,58 @@ export default function HomePage() {
 		>
 			<h1>IMT Calculator</h1>
 			<table>
-				<tr>
-					<th colspan='2'>Индекс массы тела</th>
+				<tbody>
+					<th colSpan='2'>Индекс массы тела</th>
 					<th>Классификация</th>
 					<th>Риск сопутствующих заболеваний</th>
-				</tr>
-				<tr>
+				</tbody>
+				<tbody>
 					<td></td>
 					<td>Менее 18.5</td>
 					<td>Дефицит массы тела</td>
 					<td>Низкий (повышен риск других заболеваний)</td>
-				</tr>
-				<tr>
+				</tbody>
+				<tbody>
 					<td></td>
 					<td>Менее 18.5</td>
 					<td>Дефицит массы тела</td>
 					<td>Низкий (повышен риск других заболеваний)</td>
-				</tr>
-				<tr>
+				</tbody>
+				<tbody>
 					<td></td>
 					<td>Менее 18.5</td>
 					<td>Дефицит массы тела</td>
 					<td>Низкий (повышен риск других заболеваний)</td>
-				</tr>
-				<tr>
+				</tbody>
+				<tbody>
 					<td></td>
 					<td>Менее 18.5</td>
 					<td>Дефицит массы тела</td>
 					<td>Низкий (повышен риск других заболеваний)</td>
-				</tr>
-				<tr>
+				</tbody>
+				<tbody>
 					<td></td>
 					<td>Менее 18.5</td>
 					<td>Дефицит массы тела</td>
 					<td>Низкий (повышен риск других заболеваний)</td>
-				</tr>
-				<tr>
+				</tbody>
+				<tbody>
 					<td></td>
 					<td>Менее 18.5</td>
 					<td>Дефицит массы тела</td>
 					<td>Низкий (повышен риск других заболеваний)</td>
-				</tr>
-				<tr>
+				</tbody>
+				<tbody>
 					<td></td>
 					<td>Менее 18.5</td>
 					<td>Дефицит массы тела</td>
 					<td>Низкий (повышен риск других заболеваний)</td>
-				</tr>
+				</tbody>
 			</table>
 			<Link to='/calculator'>
-				<Button color='primary'>Расчитать свой ИМТ →</Button>
+				<Button style={{ marginTop: '10px' }} color='primary'>
+					Расчитать свой ИМТ →
+				</Button>
 			</Link>
 		</div>
 	)
