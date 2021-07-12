@@ -54,7 +54,15 @@ export default function Results() {
 						}}
 					>
 						<span>Жирность тела</span>
-						<span>{state.imt > 13 ? '13-20%' : ''}</span>
+                 {/* 					   
+						if(state.imt < 13){
+							return()
+						}else if(state.imt>21){
+							return()
+						}else
+						return() 
+				*/}
+
 					</p>
 					<hr />
 				</section>

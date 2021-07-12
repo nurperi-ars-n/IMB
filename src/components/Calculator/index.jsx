@@ -2,6 +2,7 @@ import React, {useState } from 'react'
 import './Calculator.less'
 import women from './img/women.png'
 import men from './img/men.png'
+import Container from '@material-ui/core/Container';
 
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
@@ -19,6 +20,7 @@ export default function Calculator() {
 	const [pol, setPol] = useState(true)
 
 	return (
+		<Container maxWidth="md">
 		<div className='calculator'>
 			<h1>Calculator IMB</h1>
 			<div className='block'>
@@ -108,5 +110,6 @@ export default function Calculator() {
 				</div>
 			</div>
 		</div>
+</Container>
 	)
 }
