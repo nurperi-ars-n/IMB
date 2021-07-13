@@ -1,12 +1,11 @@
-import { CHANGE_USER, CLEAR_USER } from '../actions/index'
+import { CHANGE_USER} from '../actions/index'
 
 const initialState = {
 	weight: '',
 	height: '',
 	age: '',
 	pol: true,
-	imt: '',
-	perfectWeight: '',
+	fat: '',
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -20,14 +19,14 @@ export const rootReducer = (state = initialState, action) => {
 				height: action.payload.height,
 				age: action.payload.age,
 				imt: Math.floor(
-					action.payload.weight / (action.payload.height / 100) ** 2),
-				perfectVes: Math.floor((action.payload.height - 110) * 1.15),
+					action.payload.weight / (action.payload.height / 100) ** 2,
+				),
 				pol: action.payload.pol,
-			}
-		case CLEAR_USER:
-			return {
-				...state,
-				age: '',
+				fat: action.payload.fat,
+				perfectVes:
+					action.payload.pol === true
+						? Math.floor((action.payload.height - 110) * 1.15)
+						: (action.payload.height - 100) * 1.15,
 			}
 		default:
 			return state

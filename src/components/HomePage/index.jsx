@@ -14,7 +14,8 @@ export default function HomePage() {
 				justifyContent: 'center',
 			}}
 		>
-			<h1>IMT Calculator</h1>
+			<h1 data-content='Welcome user!'>Welcome user!</h1>
+			<p></p>
 			<table>
 				<tbody>
 					<th colSpan='2'>Индекс массы тела</th>

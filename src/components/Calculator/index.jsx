@@ -1,22 +1,42 @@
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import './Calculator.less'
 import women from './img/women.png'
 import men from './img/men.png'
 
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { change_user } from '../../store/actions'
 
 export default function Calculator() {
 	const dispatch = useDispatch()
 	const [age, setAge] = useState()
-	const [imt] = useState()
-	const [perfectVes] = useState()
 	const [weight, setWeight] = useState()
 	const [height, setHeight] = useState()
 	const [pol, setPol] = useState(true)
+	const history = useHistory()
+
+	const checkAccount = () => {
+		let info = /\d+/g
+
+		if (info.test(weight) && info.test(height)) {
+			return (
+				dispatch(
+					dispatch(
+						change_user({
+							age,
+							pol,
+							weight,
+							height,
+						}),
+					),
+				) && history.push('/results')
+			)
+		} else {
+			alert('заполните данные/Должны быть только цифры!')
+		}
+	}
 
 	return (
 		<div className='calculator'>
@@ -84,27 +104,16 @@ export default function Calculator() {
 					</section>
 				</div>
 				<div className='btns'>
-					<Link to='/results'>
-						<Button
-							onClick={() =>
-								dispatch(
-									change_user({
-										age,
-										pol,
-										weight,
-										height,
-										imt,
-										perfectVes,
-									}),
-								)
-							}
-							style={{ width: '300px' }}
-							variant='contained'
-							color='primary'
-						>
-							Расчитать
-						</Button>
-					</Link>
+					<Button
+						onClick={() => {
+							checkAccount()
+						}}
+						style={{ width: '300px' }}
+						variant='contained'
+						color='primary'
+					>
+						Расчитать
+					</Button>
 				</div>
 			</div>
 		</div>

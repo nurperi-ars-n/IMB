@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Results.less'
 
 import { Link } from 'react-router-dom'
@@ -7,7 +7,15 @@ import { useSelector } from 'react-redux'
 
 export default function Results() {
 	const state = useSelector((state) => state)
+	// const [fat, setFat] = useState('')
 
+	// if (state.imt >= 13) {
+	// 	setFat('13,5-24%')
+	// } else if (state.imt >= 21) {
+	// 	setFat('25,5-39%')
+	// } else if (state.imt >= 31) {
+	// 	setFat('40,5-54%')
+	// }
 
 	return (
 		<div className='results'>
@@ -54,7 +62,13 @@ export default function Results() {
 						}}
 					>
 						<span>Жирность тела</span>
-						<span>{state.imt > 13 ? '13-20%' : ''}</span>
+						<span>
+							{state.imt > 13
+								? '21%'
+								: state.imt > 21
+								? '45'
+								: ''}
+						</span>
 					</p>
 					<hr />
 				</section>
