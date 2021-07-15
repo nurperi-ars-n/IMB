@@ -19,8 +19,7 @@ export default function Calculator() {
 	const history = useHistory()
 
 	const checkAccount = () => {
-		let info = /\d+/g
-
+		let info = /\d/g
 		if (info.test(weight) && info.test(height)) {
 			return (
 				dispatch(

@@ -52,7 +52,7 @@ export default function Results() {
 						}}
 					>
 						<span>Жирность тела</span>
-						<span>{state.fat}</span>
+						<span>{state.imt <= 21 ? '13,5-24%' : state.imt < 40  ? '25-39%' : '40,5-54%'}</span>
 					</p>
 					<hr />
 				</section>

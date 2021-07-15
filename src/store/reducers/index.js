@@ -12,8 +12,7 @@ export const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case CHANGE_USER:
 			console.log(action)
-			const res = fat(action.payload.imt)
-			console.log(res)
+		
 			return {
 				...state,
 				weight: action.payload.weight,
