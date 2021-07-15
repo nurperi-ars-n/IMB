@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Results.less'
 
 import { Link } from 'react-router-dom'
@@ -7,8 +7,6 @@ import { useSelector } from 'react-redux'
 
 export default function Results() {
 	const state = useSelector((state) => state)
-
-
 	return (
 		<div className='results'>
 			<h1>Results :</h1>
@@ -54,15 +52,7 @@ export default function Results() {
 						}}
 					>
 						<span>Жирность тела</span>
-                 {/* 					   
-						if(state.imt < 13){
-							return()
-						}else if(state.imt>21){
-							return()
-						}else
-						return() 
-				*/}
-
+						<span>{state.fat}</span>
 					</p>
 					<hr />
 				</section>
