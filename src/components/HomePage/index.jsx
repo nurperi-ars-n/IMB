@@ -2,9 +2,11 @@ import { Button } from '@material-ui/core'
 import React from 'react'
 import './Home.less'
 import { Link } from 'react-router-dom'
+import Container from '@material-ui/core/Container';
 
 export default function HomePage() {
 	return (
+		<Container maxWidth="md">
 		<div
 			style={{
 				height: '600px',
@@ -65,5 +67,6 @@ export default function HomePage() {
 				</Button>
 			</Link>
 		</div>
+		</Container>
 	)
 }

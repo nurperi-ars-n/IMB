@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import './Results.less'
+import Container from '@material-ui/core/Container';
+
 
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
@@ -7,13 +9,14 @@ import { useSelector } from 'react-redux'
 
 export default function Results() {
 	const state = useSelector((state) => state)
-
-
+	let IMT = state.imt
+	if (IMT )
 	return (
+		<Container maxWidth="md">
 		<div className='results'>
 			<h1>Results :</h1>
 			<div className='block-result'>
-				<p style={{ background: '#E0FFFF' }}>
+				<p style={{ background: '#E0FFFF' }}>	
 					Weight:{state.weight}, Height:{state.height}, Age:
 					{state.age}, POL:{state.pol === true ? 'women' : 'men'}
 				</p>
@@ -54,15 +57,15 @@ export default function Results() {
 						}}
 					>
 						<span>Жирность тела</span>
-                 {/* 					   
-						if(state.imt < 13){
-							return()
+                 			<p>
+								 {state.imt > 13 ? state.imt < 24 ? '13,5-24%': '25,5-30%': '40,5-54%' }
+								 </p>	   
+						{/* if(state.imt > 13){
+							return('13,5-24%')
 						}else if(state.imt>21){
-							return()
+							return(25-39%)
 						}else
-						return() 
-				*/}
-
+						return(40,5-54%)  */}
 					</p>
 					<hr />
 				</section>
@@ -92,5 +95,6 @@ export default function Results() {
 				</Link>
 			</div>
 		</div>
+	</Container>
 	)
 }

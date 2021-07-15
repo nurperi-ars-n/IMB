@@ -74,6 +74,8 @@ export default function Calculator() {
 							style={{ width: '250px', marginTop: '25px' }}
 						/>
 						<Input
+
+						
 							onChange={(e) => setHeight(e.target.value)}
 							value={height}
 							style={{ width: '250px', marginTop: '25px' }}
