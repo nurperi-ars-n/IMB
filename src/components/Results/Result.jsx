@@ -7,15 +7,6 @@ import { useSelector } from 'react-redux'
 
 export default function Results() {
 	const state = useSelector((state) => state)
-	// if (state.imt > 13) {
-	// 	return (state.fat = '13,5%-24%')
-	// } else if (state.imt > 21) {
-	// 	return (state.fat = '25%-39%')
-	// } else if (state.imt > 41) {
-	// 	return (state.fat = '40,5%-54%')
-	// } else {
-	// 	return (state.fat = state.fat)
-	// }
 	return (
 		<div className='results'>
 			<h1>Results :</h1>

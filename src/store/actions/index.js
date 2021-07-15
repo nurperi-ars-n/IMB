@@ -6,7 +6,3 @@ export const change_user = (payload) => ({
 	payload,
 })
 
-export const create_user = (payload) => ({
-	type: CREATE_USER,
-	payload,
-})

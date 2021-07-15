@@ -8,16 +8,6 @@ const initialState = {
 }
 
 export const rootReducer = (state = initialState, action) => {
-	const fat = (i) => {
-		if (i > 13) {
-			return '13,5%-24%'
-		} else if (i > 21) {
-			return '25%-39%'
-		} else if (i > 41) {
-			return '40,5%-54%'
-		}
-		console.log(i)
-	}
 
 	switch (action.type) {
 		case CHANGE_USER:
@@ -33,8 +23,6 @@ export const rootReducer = (state = initialState, action) => {
 					action.payload.weight / (action.payload.height / 100) ** 2,
 				),
 				pol: action.payload.pol,
-
-				fat: res,
 				perfectVes:
 					action.payload.pol === true
 						? Math.floor((action.payload.height - 110) * 1.15)
