@@ -4,10 +4,12 @@ import './Results.less'
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import { useSelector } from 'react-redux'
+import Container from '@material-ui/core/Container'
 
 export default function Results() {
 	const state = useSelector((state) => state)
 	return (
+		<Container maxWidth='md'>
 		<div className='results'>
 			<h1>Results :</h1>
 			<div className='block-result'>
@@ -82,5 +84,6 @@ export default function Results() {
 				</Link>
 			</div>
 		</div>
+	</Container>
 	)
 }
