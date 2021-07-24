@@ -11,7 +11,7 @@ export default function Results() {
 		<div className='results'>
 			<h1>Results :</h1>
 			<div className='block-result'>
-				<p style={{ background: '#E0FFFF' }}>
+				<p style={{ background: '#E0FFFF' ,borderRadius:20, width:300,  }}>
 					Weight:{state.weight}, Height:{state.height}, Age:
 					{state.age}, POL:{state.pol === true ? 'women' : 'men'}
 				</p>

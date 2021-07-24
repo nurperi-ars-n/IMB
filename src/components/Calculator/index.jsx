@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './Calculator.less'
 import women from './img/women.png'
 import men from './img/men.png'
-import Container from '@material-ui/core/Container'
+import { Tooltip } from '@material-ui/core';
+
 
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
@@ -39,7 +40,7 @@ export default function Calculator() {
 	}
 
 	return (
-		<Container maxWidth='md'>
+		
 			<div className='calculator'>
 				<h1>Calculator IMB</h1>
 				<div className='block'>
@@ -87,10 +88,13 @@ export default function Calculator() {
 							<label>Weight : </label>
 						</section>
 						<section>
+						{/* <Tooltip title="Добавить в заказы"> */}
 							<Input
+							
 								onChange={(e) => setAge(e.target.value)}
 								value={age}
 								style={{ width: '250px', marginTop: '25px' }}
+								
 							/>
 							<Input
 								onChange={(e) => setHeight(e.target.value)}
@@ -102,6 +106,7 @@ export default function Calculator() {
 								value={weight}
 								style={{ width: '250px', marginTop: '25px' }}
 							/>
+							{/* </Tooltip> */}
 						</section>
 					</div>
 					<div className='btns'>
@@ -109,15 +114,16 @@ export default function Calculator() {
 							onClick={() => {
 								checkAccount()
 							}}
-							style={{ width: '300px' }}
+							style={{ width: '300px'}}
 							variant='contained'
 							color='primary'
+							
 						>
 							Расчитать
 						</Button>
 					</div>
 				</div>
 			</div>
-		</Container>
+		
 	)
 }

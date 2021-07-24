@@ -2,8 +2,29 @@ import { Button } from '@material-ui/core'
 import React from 'react'
 import './Home.less'
 import { Link } from 'react-router-dom'
+// import React, { useState, useEffect, useRef } from 'react'
+// import BIRDS from 'vanta/dist/vanta.birds.min'
+	
 
+// export const MyComponent = (props) => {
+// 	  const [vantaEffect, setVantaEffect] = useState(0)
+// 	  const myRef = useRef(null)
+// 	  useEffect(() => {
+// 		if (!vantaEffect) {
+// 		  setVantaEffect(BIRDS({
+// 			el: myRef.current
+// 		  }))
+// 		}
+// 		return () => {
+// 		  if (vantaEffect) vantaEffect.destroy()
+// 		}
+// 	  }, [vantaEffect])
+// 	  return <div ref={myRef}>
+// 		Foreground content goes here
+// 	  </div>
+// 	}
 export default function HomePage() {
+
 	return (
 		<div
 			style={{
@@ -12,9 +33,11 @@ export default function HomePage() {
 				flexDirection: 'column',
 				alignItems: 'center',
 				justifyContent: 'center',
+				
 			}}
-		>
-			<h1 data-content='Welcome user!'>Welcome user!</h1>
+		 className="title">
+			
+			<h3 data-content='Welcome user!'>Добро пожаловать!</h3>
 			<p></p>
 			<table>
 				<tbody>
