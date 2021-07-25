@@ -1,7 +1,8 @@
-import { Button } from '@material-ui/core'
 import React from 'react'
 import './Home.less'
 import { Link } from 'react-router-dom'
+
+import { Button } from '@material-ui/core'
 
 export default function HomePage() {
 	return (
@@ -58,7 +59,6 @@ export default function HomePage() {
 					<td> Ожирение 3-степени</td>
 					<td>Чрезвычайно высокий</td>
 				</tbody>
-				
 			</table>
 			<Link to='/calculator'>
 				<Button style={{ marginTop: '10px' }} color='primary'>

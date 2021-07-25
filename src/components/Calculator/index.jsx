@@ -2,21 +2,23 @@ import React, { useState } from 'react'
 import './Calculator.less'
 import women from './img/women.png'
 import men from './img/men.png'
-import Container from '@material-ui/core/Container'
 
+import { change_user } from '../../store/actions'
+import Container from '@material-ui/core/Container'
+import { Alert } from 'antd'
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { change_user } from '../../store/actions'
 
 export default function Calculator() {
-	const dispatch = useDispatch()
 	const [age, setAge] = useState()
 	const [weight, setWeight] = useState()
 	const [height, setHeight] = useState()
 	const [pol, setPol] = useState(true)
+	// const [open, setOpen] = useState(false)
 	const history = useHistory()
+	const dispatch = useDispatch()
 
 	const checkAccount = () => {
 		let info = /\d/g
@@ -34,12 +36,16 @@ export default function Calculator() {
 				) && history.push('/results')
 			)
 		} else {
-			alert('заполните данные/Должны быть только цифры!')
+			// setOpen(true)
 		}
 	}
 
 	return (
 		<Container maxWidth='md'>
+			{/* {
+				<Alert message='Warning Text' type='warning' value={open} />
+			} */}
+			
 			<div className='calculator'>
 				<h1>Calculator IMB</h1>
 				<div className='block'>
