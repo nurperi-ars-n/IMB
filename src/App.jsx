@@ -5,7 +5,9 @@ import './App.less'
 import Calculator from './components/Calculator/index.jsx'
 import Results from './components/Results/Result.jsx'
 
+
 const App = () => (
+
 	<div className='App'>
 		<BrowserRouter>
 			<Switch>
@@ -14,6 +16,9 @@ const App = () => (
 				<Route path='/' component={HomePage} />
 			</Switch>
 		</BrowserRouter>
+				
+
 	</div>
+	
 )
 export default App

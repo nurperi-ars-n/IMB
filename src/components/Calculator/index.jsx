@@ -45,7 +45,7 @@ export default function Calculator() {
 			{/* {
 				<Alert message='Warning Text' type='warning' value={open} />
 			} */}
-			
+
 			<div className='calculator'>
 				<h1>Calculator IMB</h1>
 				<div className='block'>

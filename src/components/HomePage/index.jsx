@@ -2,9 +2,13 @@ import React from 'react'
 import './Home.less'
 import { Link } from 'react-router-dom'
 
+<<<<<<< HEAD
 import { Button } from '@material-ui/core'
+=======
+>>>>>>> 567762a57ce1f8482ff66e629a5a51e6f665277d
 
 export default function HomePage() {
+
 	return (
 		<div
 			style={{
@@ -13,9 +17,11 @@ export default function HomePage() {
 				flexDirection: 'column',
 				alignItems: 'center',
 				justifyContent: 'center',
+				
 			}}
-		>
-			<h1 data-content='Welcome user!'>Welcome user!</h1>
+		 className="title">
+			
+			<h3 data-content='Welcome user!'>Добро пожаловать!</h3>
 			<p></p>
 			<table>
 				<tbody>
