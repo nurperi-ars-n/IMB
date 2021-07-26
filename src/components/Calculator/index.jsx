@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Calculator.less'
 import women from './img/women.png'
 import men from './img/men.png'
-import { Tooltip } from '@material-ui/core';
+
 
 
 import { Input } from 'antd'
@@ -60,6 +60,7 @@ export default function Calculator() {
 								className='check'
 								name='dzen'
 								type='radio'
+								
 							/>
 						</div>
 						<div>
