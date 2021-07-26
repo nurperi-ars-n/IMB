@@ -2,11 +2,6 @@ import React, { useState } from 'react'
 import './Calculator.less'
 import women from './img/women.png'
 import men from './img/men.png'
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 7a7c0fc9968bad15f4981d2942252f6382589752
 
 import { change_user } from '../../store/actions'
 import Container from '@material-ui/core/Container'
