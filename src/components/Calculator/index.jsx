@@ -5,7 +5,7 @@ import men from './img/men.png'
 
 import { change_user } from '../../store/actions'
 import Container from '@material-ui/core/Container'
-import { Alert } from 'antd'
+// import { Alert } from 'antd'
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router-dom'
@@ -36,7 +36,7 @@ export default function Calculator() {
 				) && history.push('/results')
 			)
 		} else {
-			// setOpen(true)
+			alert('as')
 		}
 	}
 
@@ -65,7 +65,6 @@ export default function Calculator() {
 								className='check'
 								name='dzen'
 								type='radio'
-								
 							/>
 						</div>
 						<div>
