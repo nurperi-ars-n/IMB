@@ -1,11 +1,10 @@
-import { Button } from '@material-ui/core'
 import React from 'react'
 import './Home.less'
 import { Link } from 'react-router-dom'
 
+import { Button } from '@material-ui/core'
 
 export default function HomePage() {
-
 	return (
 		<div
 			style={{
@@ -14,11 +13,10 @@ export default function HomePage() {
 				flexDirection: 'column',
 				alignItems: 'center',
 				justifyContent: 'center',
-				
 			}}
-		 className="title">
-			
-			<h3 data-content='Welcome user!'>Добро пожаловать!</h3>
+			className='title'
+		>
+			<h3 data-content='Добро пожаловать!'>Добро пожаловать!</h3>
 			<p></p>
 			<table>
 				<tbody>
@@ -62,7 +60,6 @@ export default function HomePage() {
 					<td> Ожирение 3-степени</td>
 					<td>Чрезвычайно высокий</td>
 				</tbody>
-				
 			</table>
 			<Link to='/calculator'>
 				<Button style={{ marginTop: '10px' }} color='primary'>

@@ -3,21 +3,22 @@ import './Calculator.less'
 import women from './img/women.png'
 import men from './img/men.png'
 
-
-
+import { change_user } from '../../store/actions'
+import Container from '@material-ui/core/Container'
+// import { Alert } from 'antd'
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { change_user } from '../../store/actions'
 
 export default function Calculator() {
-	const dispatch = useDispatch()
 	const [age, setAge] = useState()
 	const [weight, setWeight] = useState()
 	const [height, setHeight] = useState()
 	const [pol, setPol] = useState(true)
+	// const [open, setOpen] = useState(false)
 	const history = useHistory()
+	const dispatch = useDispatch()
 
 	const checkAccount = () => {
 		let info = /\d/g
@@ -35,12 +36,16 @@ export default function Calculator() {
 				) && history.push('/results')
 			)
 		} else {
-			alert('заполните данные/Должны быть только цифры!')
+			alert('as')
 		}
 	}
 
 	return (
-		
+		<Container maxWidth='md'>
+			{/* {
+				<Alert message='Warning Text' type='warning' value={open} />
+			} */}
+
 			<div className='calculator'>
 				<h1>Calculator IMB</h1>
 				<div className='block'>
@@ -60,7 +65,6 @@ export default function Calculator() {
 								className='check'
 								name='dzen'
 								type='radio'
-								
 							/>
 						</div>
 						<div>
@@ -89,13 +93,10 @@ export default function Calculator() {
 							<label>Weight : </label>
 						</section>
 						<section>
-						{/* <Tooltip title="Добавить в заказы"> */}
 							<Input
-							
 								onChange={(e) => setAge(e.target.value)}
 								value={age}
 								style={{ width: '250px', marginTop: '25px' }}
-								
 							/>
 							<Input
 								onChange={(e) => setHeight(e.target.value)}
@@ -107,7 +108,6 @@ export default function Calculator() {
 								value={weight}
 								style={{ width: '250px', marginTop: '25px' }}
 							/>
-							{/* </Tooltip> */}
 						</section>
 					</div>
 					<div className='btns'>
@@ -115,16 +115,15 @@ export default function Calculator() {
 							onClick={() => {
 								checkAccount()
 							}}
-							style={{ width: '300px'}}
+							style={{ width: '300px' }}
 							variant='contained'
 							color='primary'
-							
 						>
 							Расчитать
 						</Button>
 					</div>
 				</div>
 			</div>
-		
+		</Container>
 	)
 }
