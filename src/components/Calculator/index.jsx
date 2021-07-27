@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Calculator.less'
 import women from './img/women.png'
 import men from './img/men.png'
+import swal from 'sweetalert'
 
 import { change_user } from '../../store/actions'
 import Container from '@material-ui/core/Container'
@@ -9,17 +10,34 @@ import Container from '@material-ui/core/Container'
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
+import { change_user } from "../../store/actions/index"
+
+import { RU, KG, EN } from "../../store/actions/auth";
+import {switch_language} from '../../store/actions/auth'
+import LanguageIcon from '@material-ui/icons/Language';
 
 export default function Calculator() {
+
+	const mostrarAlerta = () =>{
+		swal({
+			title:"Ошибка!",
+			text:"заполните данные/Должны быть только цифры!",
+			icon:"error",
+			button:'Хорощо!'
+		})
+	}
+
+	const data = useSelector(state => state.auth.data)
+
+	const dispatch = useDispatch()
 	const [age, setAge] = useState()
 	const [weight, setWeight] = useState()
 	const [height, setHeight] = useState()
 	const [pol, setPol] = useState(true)
 	// const [open, setOpen] = useState(false)
 	const history = useHistory()
-	const dispatch = useDispatch()
-
+	
 	const checkAccount = () => {
 		let info = /\d/g
 		if (info.test(weight) && info.test(height)) {
@@ -36,51 +54,31 @@ export default function Calculator() {
 				) && history.push('/results')
 			)
 		} else {
-			alert('as')
+			mostrarAlerta()
 		}
 	}
 
 	return (
-		<Container maxWidth='md'>
-			{/* {
-				<Alert message='Warning Text' type='warning' value={open} />
-			} */}
-
-			<div className='calculator'>
-				<h1>Calculator IMB</h1>
+	       <div className='calculator'>
+			   <div style={{display: 'flex', alignItems: 'center', padding: 10}}>
+					<LanguageIcon style={{fill: 'black'}}/>
+					<Button onClick={() => dispatch(switch_language(RU))} color="primary">RU</Button>
+					<Button onClick={() => dispatch(switch_language(EN))}>EN</Button>
+				</div>
+				{/* <h1 style={{color: 'black'}}><span>Калькулятор</span> ИMT</h1> */}
 				<div className='block'>
-					<h2>Входные данные :</h2>
 					<div className='switch'>
 						<div>
-							<cite>Женский</cite>
-							<img
-								style={{
-									marginLeft: '10px',
-								}}
-								src={women}
-								alt=''
-							/>
-							<input
-								onChange={() => setPol(true)}
-								className='check'
-								name='dzen'
-								type='radio'
-							/>
+							<cite>{data.gender}</cite>
+							<img style={{marginLeft: '0px',}} src={women} alt=''/>
+							<input onChange={() => setPol(true)} className="check"name='dzen' type='radio'/>
 						</div>
 						<div>
-							<cite>Мужской </cite>
-							<img
-								style={{
-									width: '20px',
-									height: '20px',
-									marginLeft: '10px',
-								}}
-								src={men}
-								alt=''
+							<cite>{data.man}</cite>
+							<img style={{width: '20px',height: '20px',marginLeft: '0px',}}
+								src={men} alt=''
 							/>
-							<input
-								onChange={() => setPol(false)}
-								className='check'
+							<input onChange={() => setPol(false)} className="check"
 								name='dzen'
 								type='radio'
 							/>
@@ -88,26 +86,14 @@ export default function Calculator() {
 					</div>
 					<div className='data'>
 						<section>
-							<label>Age : </label>
-							<label>Height : </label>
-							<label>Weight : </label>
+							<label>{data.ageOne}:</label>
+							<label>{data.heightOne} :</label>
+							<label>{data.weightOne}:</label>
 						</section>
 						<section>
-							<Input
-								onChange={(e) => setAge(e.target.value)}
-								value={age}
-								style={{ width: '250px', marginTop: '25px' }}
-							/>
-							<Input
-								onChange={(e) => setHeight(e.target.value)}
-								value={height}
-								style={{ width: '250px', marginTop: '25px' }}
-							/>
-							<Input
-								onChange={(e) => setWeight(e.target.value)}
-								value={weight}
-								style={{ width: '250px', marginTop: '25px' }}
-							/>
+							<Input onChange={(e) => setAge(e.target.value)} value={age} className="input"/>
+							<Input onChange={(e) => setHeight(e.target.value)} value={height} className="input"/>
+							<Input onChange={(e) => setWeight(e.target.value)} value={weight} className="input"/>
 						</section>
 					</div>
 					<div className='btns'>
@@ -115,15 +101,15 @@ export default function Calculator() {
 							onClick={() => {
 								checkAccount()
 							}}
-							style={{ width: '300px' }}
+							style={{ width: '300px'}}
 							variant='contained'
 							color='primary'
+							
 						>
-							Расчитать
+							{data.button}
 						</Button>
 					</div>
 				</div>
 			</div>
-		</Container>
-	)
+		)
 }

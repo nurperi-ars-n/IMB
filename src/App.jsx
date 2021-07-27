@@ -1,7 +1,6 @@
 import React from 'react'
 import HomePage from './components/HomePage/index.jsx'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-import './App.less'
 import Calculator from './components/Calculator/index.jsx'
 import Results from './components/Results/Result.jsx'
 

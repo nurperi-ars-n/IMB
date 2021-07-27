@@ -1,4 +1,4 @@
-import { CHANGE_USER } from '../actions/index'
+import { CHANGE_USER } from '../actions/index.js'
 
 const initialState = {
 	weight: '',

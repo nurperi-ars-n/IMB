@@ -1,33 +1,39 @@
 import React from 'react'
 import './Home.less'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import {data} from '../../store/data'
+import { RU, KG, EN } from "../../store/actions/auth";
+import {switch_language} from '../../store/actions/auth'
+import LanguageIcon from '@material-ui/icons/Language';
+
 
 import { Button } from '@material-ui/core'
 
 export default function HomePage() {
+
+	const data = useSelector(state => state.auth.data)
+	const dispatch = useDispatch()
+
 	return (
-		<div
-			style={{
-				height: '600px',
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'center',
-				justifyContent: 'center',
-			}}
-			className='title'
-		>
-			<h3 data-content='Добро пожаловать!'>Добро пожаловать!</h3>
-			<p></p>
+		<div className="home">
+			<div style={{display: 'flex', alignItems: 'center', padding: 10}}>
+				<LanguageIcon style={{fill: 'black'}}/>
+				<Button onClick={() => dispatch(switch_language(RU))} color="primary">RU</Button>
+				<Button onClick={() => dispatch(switch_language(EN))}>EN</Button>
+			</div>
+			<h1>{data.title}</h1>
+			{/* <h1>Калькулятор ИМТ</h1> */}
 			<table>
 				<tbody>
 					<th colSpan='2'>Индекс массы тела</th>
-					<th>Классификация</th>
+					<th><span>Классифи</span><span>кация</span></th>
 					<th>Риск сопутствующих заболеваний</th>
 				</tbody>
 				<tbody>
 					<td></td>
-					<td>Менее 18.5</td>
-					<td>Дефицит массы тела</td>
+					<td>18.5</td>
+					<td>Дефицит массы<br/> тела</td>
 					<td>Низкий (повышен риск других заболеваний)</td>
 				</tbody>
 				<tbody>
@@ -39,7 +45,7 @@ export default function HomePage() {
 				<tbody>
 					<td></td>
 					<td>25-29.9</td>
-					<td>Избыточная массы тела(предожирение)</td>
+					<td>Избыточная массы тела</td>
 					<td>Повышенный</td>
 				</tbody>
 				<tbody>
@@ -57,12 +63,12 @@ export default function HomePage() {
 				<tbody>
 					<td></td>
 					<td>Больше 40</td>
-					<td> Ожирение 3-степени</td>
+					<td>Ожирение 3-степени</td>
 					<td>Чрезвычайно высокий</td>
 				</tbody>
 			</table>
 			<Link to='/calculator'>
-				<Button style={{ marginTop: '10px' }} color='primary'>
+				<Button style={{marginTop: '10px'}} color='primary'>
 					Расчитать свой ИМТ →
 				</Button>
 			</Link>

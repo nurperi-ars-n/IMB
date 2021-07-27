@@ -4,15 +4,15 @@ import App from './App.jsx'
 import 'antd/dist/antd.css'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { rootReducer } from './store/reducers/index.js'
+import  rootReducer  from './store/reducers/combine'
 
 const store = createStore(rootReducer)
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</React.StrictMode>,
-	document.getElementById('root'),
+ <React.StrictMode>
+  <Provider store={store}>
+   <App />
+  </Provider>
+ </React.StrictMode>,
+ document.getElementById('root'),
 )
