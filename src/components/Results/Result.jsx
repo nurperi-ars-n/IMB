@@ -1,66 +1,56 @@
 import React, { useEffect, useState } from 'react'
 import './Results.less'
-
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux"
+
+import { RU, KG, EN } from "../../store/actions/auth";
+import {switch_language} from '../../store/actions/auth'
+import LanguageIcon from '@material-ui/icons/Language';
+
 
 export default function Results() {
-	const state = useSelector((state) => state)
-	return (
+
+     const state = useSelector((state)=> state.index)
+	 const data = useSelector(state => state.auth.data)
+
+	 const dispatch = useDispatch()
+
+	 return(
 		<div className='results'>
-			<h1>Results :</h1>
+			<div style={{display: 'flex', alignItems: 'center', padding: 10}}>
+				<LanguageIcon style={{fill: 'black'}}/>
+				<Button onClick={() => dispatch(switch_language(RU))} color="primary">RU</Button>
+				<Button onClick={() => dispatch(switch_language(EN))}>EN</Button>
+			</div>
+			<h1 style={{color:"black"}}>Результаты</h1>
 			<div className='block-result'>
-				<p style={{ background: '#E0FFFF' }}>
-					Weight:{state.weight}, Height:{state.height}, Age:
-					{state.age}, POL:{state.pol === true ? 'women' : 'men'}
+				<p className="detals">
+				{data.weightOne}:{state.weight} {""} 
+				{data.heightOne}ь:{state.height} {""}
+				{data.ageOne}:{state.age} {""} 
+				{data.apol}:{state.pol === true ? 'Женщина' : 'Мужчина'}
 				</p>
-				<section
-					style={{
-						backgroundColor: 'rgb(215, 231, 250)',
-						width: '500px',
-					}}
-				>
-					<hr />
-					<p
-						style={{
-							marginRight: '20px',
-							display: 'flex',
-							justifyContent: 'space-between',
-						}}
-					>
-						<span>Индекс массы тела (ИМТ)</span>
+				<section>
+					<p>
+						<span>{data.index}</span>
 						<span>{state.imt}</span>
 					</p>
-					<hr />
-					<p
-						style={{
-							marginRight: '20px',
-							display: 'flex',
-							justifyContent: 'space-between',
-						}}
-					>
-						<span>Ваш идеальный вес</span>
+					<p>
+						<span>{data.perfect}</span>
 						<span>{state.perfectVes}</span>
 					</p>
-					<hr />
-					<p
-						style={{
-							marginRight: '20px',
-							display: 'flex',
-							justifyContent: 'space-between',
-						}}
-					>
-						<span>Жирность тела</span>
+					<p>
+						<span>{data.fat}</span>
 						<span>{state.imt <= 21 ? '13,5-24%' : state.imt < 40  ? '25-39%' : '40,5-54%'}</span>
 					</p>
-					<hr />
 				</section>
 				<Link to='/'>
 					<Button
 						style={{
 							width: '200px',
 							marginTop: '12px',
+							borderRadius:20,
 						}}
 						variant='contained'
 						color='secondary'
@@ -73,6 +63,7 @@ export default function Results() {
 						style={{
 							width: '200px',
 							marginTop: '12px',
+							borderRadius:20
 						}}
 						variant='contained'
 						color='secondary'

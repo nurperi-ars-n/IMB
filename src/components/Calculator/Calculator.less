@@ -1,23 +1,35 @@
+.input {
+	width: 250px; 
+	margin-top: 25px;
+}
 .calculator {
-	height: 700px;
+	height: 900px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+    justify-content: center;
 	flex-direction: column;
+	margin-top: -200px;
+	padding-top: 100px;
+	background-image: url("./img/three.jpg");
+	background-size: cover;
+	h2{
+		color: black;
+		margin-top: 20px;
+	}
 	.block {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
 		flex-direction: column;
-		width: 800px;
-		height: 400px;
-		background-color: rgb(215, 231, 250);
+		width: 370px;
+		height: 300px;
 		.switch {
 			display: flex;
 			align-items: center;
 			margin-left: 11%;
 			.check {
+				margin-top: 10px;
 				width: 25px;
 				height: 25px;
 				margin: 4px;
@@ -39,3 +51,24 @@
 		margin-top: 60px;
 	}
 }
+
+@media (max-width: 540px) {
+	.Calculator{
+		width: 100%;
+	}
+	.calculator {
+		height: 1020px;
+		margin-left: -230px;
+		padding-left: 230px;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+    .block{
+		    width: 300px;
+			margin-left: 20px;
+			margin-right: 20px;
+    }
+	.input {
+		width: 160px;
+	}
+  }
