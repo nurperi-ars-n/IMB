@@ -4,6 +4,9 @@ import women from './img/women.png'
 import men from './img/men.png'
 import swal from 'sweetalert'
 
+import { change_user } from '../../store/actions'
+import Container from '@material-ui/core/Container'
+// import { Alert } from 'antd'
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router-dom'
@@ -32,6 +35,7 @@ export default function Calculator() {
 	const [weight, setWeight] = useState()
 	const [height, setHeight] = useState()
 	const [pol, setPol] = useState(true)
+	// const [open, setOpen] = useState(false)
 	const history = useHistory()
 	
 	const checkAccount = () => {

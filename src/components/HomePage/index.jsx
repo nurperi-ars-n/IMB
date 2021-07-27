@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core'
 import React from 'react'
 import './Home.less'
 import { Link } from 'react-router-dom'
@@ -8,6 +7,8 @@ import { RU, KG, EN } from "../../store/actions/auth";
 import {switch_language} from '../../store/actions/auth'
 import LanguageIcon from '@material-ui/icons/Language';
 
+
+import { Button } from '@material-ui/core'
 
 export default function HomePage() {
 
