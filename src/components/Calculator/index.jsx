@@ -4,16 +4,14 @@ import women from './img/women.png'
 import men from './img/men.png'
 import swal from 'sweetalert'
 
-import { change_user } from '../../store/actions'
-import Container from '@material-ui/core/Container'
-// import { Alert } from 'antd'
+import { change_user } from '../../store/actions/index'
+
 import { Input } from 'antd'
 import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
-import { change_user } from "../../store/actions/index"
 
-import { RU, KG, EN } from "../../store/actions/auth";
+import { RU,EN } from "../../store/actions/auth";
 import {switch_language} from '../../store/actions/auth'
 import LanguageIcon from '@material-ui/icons/Language';
 
@@ -21,10 +19,10 @@ export default function Calculator() {
 
 	const mostrarAlerta = () =>{
 		swal({
-			title:"Ошибка!",
-			text:"заполните данные/Должны быть только цифры!",
+			title: data.error,
+			text: data.text,
 			icon:"error",
-			button:'Хорощо!'
+			button: data.ok
 		})
 	}
 
@@ -60,22 +58,26 @@ export default function Calculator() {
 
 	return (
 	       <div className='calculator'>
-			   <div style={{display: 'flex', alignItems: 'center', padding: 10}}>
-					<LanguageIcon style={{fill: 'black'}}/>
-					<Button onClick={() => dispatch(switch_language(RU))} color="primary">RU</Button>
-					<Button onClick={() => dispatch(switch_language(EN))}>EN</Button>
-				</div>
-				{/* <h1 style={{color: 'black'}}><span>Калькулятор</span> ИMT</h1> */}
+			   <div className="nav">
+					<div>
+						<h2 style={{color:'black'}}>{data.header}</h2>
+					</div>
+					<div style={{display:'flex'}} > 
+						<LanguageIcon style={{fill: 'black',marginTop:5}} />
+						<Button onClick={() => dispatch(switch_language(RU))} style={{color:'black'}}>RU</Button>
+						<Button onClick={() => dispatch(switch_language(EN))} style={{color:'black'}} >EN</Button>
+					</div>
+		       </div>
 				<div className='block'>
 					<div className='switch'>
-						<div>
+						<div style={{display: "flex",fontWeight: 'bolder'}}>
 							<cite>{data.gender}</cite>
-							<img style={{marginLeft: '0px',}} src={women} alt=''/>
+							<img style={{marginLeft: '5px',}} src={women} alt=''/>
 							<input onChange={() => setPol(true)} className="check"name='dzen' type='radio'/>
 						</div>
-						<div>
+						<div style={{display: "flex",fontWeight: 'bolder'}}>
 							<cite>{data.man}</cite>
-							<img style={{width: '20px',height: '20px',marginLeft: '0px',}}
+							<img style={{width: '20px',height: '20px',marginLeft: '5px',marginTop: '3px'}}
 								src={men} alt=''
 							/>
 							<input onChange={() => setPol(false)} className="check"
