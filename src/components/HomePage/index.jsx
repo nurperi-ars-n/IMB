@@ -2,8 +2,7 @@ import React from 'react'
 import './Home.less'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {data} from '../../store/data'
-import { RU, KG, EN } from "../../store/actions/auth";
+import { RU,EN } from "../../store/actions/auth";
 import {switch_language} from '../../store/actions/auth'
 import LanguageIcon from '@material-ui/icons/Language';
 
@@ -17,61 +16,67 @@ export default function HomePage() {
 
 	return (
 		<div className="home">
-			<div style={{display: 'flex', alignItems: 'center', padding: 10}}>
-				<LanguageIcon style={{fill: 'black'}}/>
-				<Button onClick={() => dispatch(switch_language(RU))} color="primary">RU</Button>
-				<Button onClick={() => dispatch(switch_language(EN))}>EN</Button>
+			<div className="nav">
+				<div>
+					<h2 style={{color:'white'}}>{data.header}</h2>
+				</div>
+				<div style={{display:'flex'}} > 
+				    <LanguageIcon style={{fill: 'white',marginTop:5}} />
+					<Button onClick={() => dispatch(switch_language(RU))} style={{color:'white'}}>RU</Button>
+					<Button onClick={() => dispatch(switch_language(EN))} style={{color:'white'}} >EN</Button>
+				</div>
 			</div>
-			<h1>{data.title}</h1>
-			{/* <h1>Калькулятор ИМТ</h1> */}
-			<table>
-				<tbody>
-					<th colSpan='2'>Индекс массы тела</th>
-					<th><span>Классифи</span><span>кация</span></th>
-					<th>Риск сопутствующих заболеваний</th>
-				</tbody>
-				<tbody>
-					<td></td>
-					<td>18.5</td>
-					<td>Дефицит массы<br/> тела</td>
-					<td>Низкий (повышен риск других заболеваний)</td>
-				</tbody>
-				<tbody>
-					<td></td>
-					<td> 18.5- 24.9</td>
-					<td>Нормальная массы тела</td>
-					<td>Обычный</td>
-				</tbody>
-				<tbody>
-					<td></td>
-					<td>25-29.9</td>
-					<td>Избыточная массы тела</td>
-					<td>Повышенный</td>
-				</tbody>
-				<tbody>
-					<td></td>
-					<td>30-34.9</td>
-					<td>Ожирение 1-степени</td>
-					<td>Высокий</td>
-				</tbody>
-				<tbody>
-					<td></td>
-					<td>35-39.9</td>
-					<td>Ожирение 2-степени</td>
-					<td>Очень высокий</td>
-				</tbody>
-				<tbody>
-					<td></td>
-					<td>Больше 40</td>
-					<td>Ожирение 3-степени</td>
-					<td>Чрезвычайно высокий</td>
-				</tbody>
-			</table>
-			<Link to='/calculator'>
-				<Button style={{marginTop: '10px'}} color='primary'>
-					Расчитать свой ИМТ →
-				</Button>
-			</Link>
+			<div  className="block">
+				<h1 style={{color:'#d65443'}}>{data.title}</h1>
+				<table> 
+					<tbody> 
+						<th colSpan='2'>{data.one}</th> 
+						<th>{data.two}</th> 
+						<th>{data.three}</th> 
+					</tbody> 
+					<tbody> 
+						<td></td> 
+						<td>18.5</td> 
+						<td>{data.four}</td> 
+						<td>{data.five}</td> 
+					</tbody> 
+					<tbody> 
+						<td></td> 
+						<td> 18.5- 24.9</td> 
+						<td>{data.six}</td> 
+						<td>{data.seven}</td> 
+					</tbody> 
+					<tbody> 
+						<td></td> 
+						<td>25-29.9</td> 
+						<td>{data.eight}</td> 
+						<td>{data.nine}</td> 
+					</tbody> 
+					<tbody> 
+						<td></td> 
+						<td>30-34.9</td> 
+						<td>{data.ten}</td> 
+						<td>{data.eleven}</td> 
+					</tbody> 
+					<tbody> 
+						<td></td> 
+						<td>35-39.9</td> 
+						<td>{data.twelve}</td> 
+						<td>{data. threeten}</td> 
+					</tbody> 
+					<tbody> 
+						<td></td> 
+						<td>{data.fourteen}</td> 
+						<td>{data.fifteen}</td> 
+						<td>{data.sixteen}</td> 
+					</tbody> 
+				</table> 
+				<Link to='/calculator'>
+					<Button style={{marginTop: '10px',color:'white',fontWeight:'bolder',backgroundColor: '#d65443'}}>
+						{data.seventeen}
+					</Button>
+				</Link>
+			</div>
 		</div>
 	)
 }

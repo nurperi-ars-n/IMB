@@ -52,12 +52,8 @@
     "@babel/polyfill": "^7.12.1",
     "@icons/material": "^0.4.1",
     "@material-ui/core": "^4.12.1",
-<<<<<<< HEAD
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
-=======
-    "@types/three": "^0.130.1",
->>>>>>> d54d6ffcc3fba0c1a0a29096cc206bc93ff2d06b
     "antd": "^4.16.6",
     "babel-eslint": "^10.1.0",
     "lodash": "^4.17.21",
@@ -68,6 +64,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.1.0",
+    "sweetalert": "^2.1.2",
     "three": "^0.130.1",
     "vanta": "^0.5.21"
   }

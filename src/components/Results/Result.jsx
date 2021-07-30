@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import { useDispatch, useSelector } from "react-redux"
 
-import { RU, KG, EN } from "../../store/actions/auth";
+import { RU,EN } from "../../store/actions/auth";
 import {switch_language} from '../../store/actions/auth'
 import LanguageIcon from '@material-ui/icons/Language';
 
@@ -18,19 +18,24 @@ export default function Results() {
 
 	 return(
 		<div className='results'>
-			<div style={{display: 'flex', alignItems: 'center', padding: 10}}>
-				<LanguageIcon style={{fill: 'black'}}/>
-				<Button onClick={() => dispatch(switch_language(RU))} color="primary">RU</Button>
-				<Button onClick={() => dispatch(switch_language(EN))}>EN</Button>
+			<div className="nav">
+				<div>
+					<h2 style={{color:'white'}}>{data.header}</h2>
+				</div>
+				<div style={{display:'flex'}} > 
+				    <LanguageIcon style={{fill: 'white',marginTop:5}} />
+					<Button onClick={() => dispatch(switch_language(RU))} style={{color:'white'}}>RU</Button>
+					<Button onClick={() => dispatch(switch_language(EN))} style={{color:'white'}} >EN</Button>
+				</div>
 			</div>
-			<h1 style={{color:"black"}}>Результаты</h1>
 			<div className='block-result'>
-				<p className="detals">
-				{data.weightOne}:{state.weight} {""} 
-				{data.heightOne}ь:{state.height} {""}
-				{data.ageOne}:{state.age} {""} 
-				{data.apol}:{state.pol === true ? 'Женщина' : 'Мужчина'}
-				</p>
+		     	<h1 style={{color:"black"}}>{data.results}</h1>
+				<div className="detals">
+					<span>{data.weightOne}:{state.weight}</span>
+					<span>{data.heightOne}:{state.height}</span>
+					<span>{data.ageOne}:{state.age}</span>
+					<span>{data.pol}: {state.pol === true ? data.gender: data.man }</span>
+				</div>
 				<section>
 					<p>
 						<span>{data.index}</span>
@@ -55,7 +60,7 @@ export default function Results() {
 						variant='contained'
 						color='secondary'
 					>
-						Таблица ИМТ →
+						{data.buttons}
 					</Button>
 				</Link>
 				<Link to='/calculator'>
@@ -68,7 +73,7 @@ export default function Results() {
 						variant='contained'
 						color='secondary'
 					>
-						Назад →
+				       {data.exit}
 					</Button>
 				</Link>
 			</div>
